@@ -15,9 +15,16 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('balance')->default(0);
+            $table->integer('balance');
             $table->timestamps();
         });
+
+        //Creating new properties with default data while migrating
+        DB::table('accounts')->insert([
+           'balance' => 0,
+            'updated_at' => NULL,
+            'created_at' => NULL
+        ]);
     }
 
     /**

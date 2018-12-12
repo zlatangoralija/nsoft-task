@@ -21,11 +21,13 @@ class ServiceBController extends Controller
             $account = new Account;
             $account->balance = $amount;
             $account->save();
+            return "Balance successfully saved";
         }else{ //If record does exist, update existing record by increasing or decreasing balance
             $account = Account::all()->first();
             $previousBalance = $account->balance;
             $account->balance = ($previousBalance) + ($amount);
             $account->update();
+            return "Balance successfully updated";
         }
     }
 
@@ -33,7 +35,7 @@ class ServiceBController extends Controller
         //Function that displays balance state and the time it was last updated at
         $account = Account::all()->first();
         echo "\n------------------------------------\n";
-        echo "Current balance: ".+number_format(($account->balance)/100, 2, '.', '');
+        echo "Current balance: ".+number_format(($account->balance)/100, 2, '.', '')." EUR";
         echo "\n------------------------------------\n";
         echo "Last updated: ".$account->updated_at->diffForHumans();
         echo "\n-------------------------------------\n";
