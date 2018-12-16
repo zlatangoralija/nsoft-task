@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Service A
+                    Nsoft task. Welcome!
                 </div>
 
                 {{--<div class="links">--}}

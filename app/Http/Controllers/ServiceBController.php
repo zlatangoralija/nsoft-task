@@ -10,7 +10,7 @@ class ServiceBController extends Controller
 {
     public function store(){
         //Reading message(consumer) data that was previously saved to a data.json file
-        $path = 'C:\xampp\htdocs\nsoft\data\data.json'; // path to JSON file
+        $path = base_path('data/data.json'); // path to JSON file
         $data = file_get_contents($path); // put the contents of the file into a variable
         $moneyInformation = json_decode($data, true); // decode the JSON feed
         $amount = $moneyInformation['amount'];

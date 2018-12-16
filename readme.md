@@ -29,8 +29,13 @@ DB_PASSWORD=your_mysql_password
 ```
 > Note: MySQL user should have all privileges.
 
-##Setting up Docker containers
-This project is "Dockerable", so you have to set up Docker first, in order to run services. This project uses [Laradock](https://laradock.io/), which is a full PHP development environment for Docker. In order to run this project with docker containers, first navigate to laradock folder, which includes all pre-configured and pre-packaged Docker Images. 
+## Setting up Docker containers
+This project is "Dockerable", so you have to set up Docker first, in order to run services. This project uses [Laradock](https://laradock.io/), which is a full PHP development environment for Docker. In order to run this project with docker containers, first you have to clone *Laradock* inside this project:
+```
+git clone https://github.com/Laradock/laradock.git
+```
+
+Afther that navigate to laradock folder, which includes all pre-configured and pre-packaged Docker Images. 
 ```
 cd laradock
 ```
@@ -67,7 +72,7 @@ docker-compose exec workspace bash
 ```
 > Note: If you for some reason get an "*php_network_getaddresses: getaddrinfo failed*" error, just rebuild mysql container with following command: *docker-compose build --no-cache mysql*"
 
-If everything is set-up correctly, we can now migrate the tables, which will create *account* entity in given database, with two properties, **balance** and **updatedAt**. Initial**balance**is set at**0**and initial**updatedAt**is set at**NULL**by default. Now you have everything set, and you can proceed to Services documentation, which will contain all necessary information about purposes, set-up and running.
+If everything is set-up correctly, we can now migrate the tables, which will create *account* entity in given database, with two properties, **balance** and **updatedAt**. Initial **balance** is set at **0** and initial **updatedAt** is set at **NULL** by default. Now you have everything set, and you can proceed to Services documentation, which will contain all necessary information about purposes, set-up and running.
 
 
 ## Service A
