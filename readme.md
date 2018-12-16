@@ -30,12 +30,7 @@ DB_PASSWORD=your_mysql_password
 > Note: MySQL user should have all privileges.
 
 ## Setting up Docker containers
-This project is "Dockerable", so you have to set up Docker first, in order to run services. This project uses [Laradock](https://laradock.io/), which is a full PHP development environment for Docker. In order to run this project with docker containers, first you have to clone *Laradock* inside this project:
-```
-git clone https://github.com/Laradock/laradock.git
-```
-
-After that navigate to "laradock" folder, which includes all pre-configured and pre-packaged Docker Images. 
+This project is "Dockerable", so you have to set up Docker first, in order to run services. This project uses [Laradock](https://laradock.io/), which is a full PHP development environment for Docker. Laradock contains all files necessary to install and run containers. In order to do that, navigate to "laradock" folder, which includes all pre-configured and pre-packaged Docker Images. 
 ```
 cd laradock
 ```
@@ -68,7 +63,7 @@ When everything is pulled and installed, you can check if containers are running
 docker-compose ps
 ```
 
-NAPOMENA: Staviti sliku ove komande iznad
+<p align="center"><img src="https://imgur.com/a/9lfoArj"></p>
 
 After that, we navigate to working directory of docker image, which is workspace:
 ```
@@ -80,11 +75,18 @@ If everything is set-up correctly, we can now migrate the tables, which will cre
 
 
 ## Service A
-Service A is the first part of this project. This service is used to generate message for the Service B. For this Service, I used a single **POST** API route, which is used to generate a message, containing money data, to Service B, using [RabbitMQ](https://www.rabbitmq.com/) message broker. As noted eariler, I used Postman to send this request. Create new **POST** request and enter following route and parameters:
+Service A is the first part of this project. This service is used to generate message for the Service B. For this Service, I used a single **POST** API route, which is used to generate a message, containing money data, to Service B, using [RabbitMQ](https://www.rabbitmq.com/) message broker. This route leads to Service A controller, where all the logic is located, such as *if* statements checking if the amount is in acceptable range and *RabbitMQ* publisher script.
 
-![Publisher POST Request](https://imgur.com/a/DC5UgI6) 
+As noted earlier, I used *Postman* to send this request. Create new **POST** request and enter following route and parameters:
 
-After you hit send, message will be sent to message broker, and HTTP payload of sent data will we displayed below.
+<p align="center"><img src="https://imgur.com/a/DC5UgI6"></p>
+
+After you hit *Send*, message will be sent to message broker que, and HTTP payload of sent data will we displayed below. For the message broker, I used [CloudAMQP](https://www.cloudamqp.com/) RabbitMQ menager, where I could track messages and ques created by service A. The previous message looks like this, and it's ready to be consumed and saved to database:
+
+<p align="center"><img src="https://imgur.com/a/YMmewNp"></p>
+
+## Service B
+
 
 ## Laravel Sponsors
 
