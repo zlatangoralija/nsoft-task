@@ -63,7 +63,7 @@ When everything is pulled and installed, you can check if containers are running
 docker-compose ps
 ```
 
-<p align="center"><img src="https://imgur.com/a/9lfoArj"></p>
+<p align="center"><img src="https://i.imgur.com/SlGaomJ.png"></p>
 
 After that, we navigate to working directory of docker image, which is workspace:
 ```
@@ -79,11 +79,11 @@ Service A is the first part of this project. This service is used to generate me
 
 As noted earlier, I used *Postman* to send this request. Create new **POST** request and enter following route and parameters:
 
-<p align="center"><img src="https://imgur.com/a/DC5UgI6"></p>
+<p align="center"><img src="https://i.imgur.com/ohuMXY5.png"></p>
 
 After you hit *Send*, message will be sent to message broker que, and HTTP payload of sent data will we displayed below. For the message broker, I used [CloudAMQP](https://www.cloudamqp.com/) RabbitMQ menager, where I could track messages and ques created by service A. The previous message looks like this, and it's ready to be consumed and saved to database:
 
-<p align="center"><img src="https://imgur.com/a/YMmewNp"></p>
+<p align="center"><img src="https://i.imgur.com/Q1PyIaw.png"></p>
 
 ## Service B
 
