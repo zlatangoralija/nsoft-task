@@ -1,14 +1,14 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 ## NSoft - Seven Essential Services Recruiting Task
-Welcome. This is my solution for the given task above. This project contains two services: Service A and Service B, which use a messaging system that connects them to single business process. All project parts, installation, how to set-up and how to run specific services and tasks will be separately documented down below.
+Welcome. This is my solution for the given task above. The project was developed using Laravel PHP framework. It contains two services: Service A and Service B, which use a messaging system that connects them to single business process. Both services are invoked through routes, and [Postman](https://www.getpostman.com/) is used to test and run those services.  All project parts, installation, how to set-up and how to run specific services and tasks will be separately documented down below.
 
 
 ## Table of contents
 Insert table of contents here:
 
 ## Instalation
-After cloning or downloading project files, first thing is to install composer, which is a tool for dependency management in PHP, by running this command in terminal:
+After cloning or downloading project files, first thing you have to do is to install composer, which is a tool for dependency management in PHP, by running this command in terminal:
 ```php
 composer install
 ```
@@ -35,18 +35,18 @@ This project is "Dockerable", so you have to set up Docker first, in order to ru
 git clone https://github.com/Laradock/laradock.git
 ```
 
-Afther that navigate to laradock folder, which includes all pre-configured and pre-packaged Docker Images. 
+After that navigate to "laradock" folder, which includes all pre-configured and pre-packaged Docker Images. 
 ```
 cd laradock
 ```
 
-Sinc all Docker Images all pre-configured, you just have to specify which containers you need to run, in this case: 
+Since all Docker Images all pre-configured, you just have to specify which containers you need to run, in this case: 
 - MySQL, 
 - RabbitMQ,
 - apache2,
 - phpmyadmin
 
-One more thing you have to do before running containers, is to rename the laradock/env-example to .env, and enter your same database configuration again: 
+One more thing you have to do before running containers, is to rename the `laradock/env-example` to `.env`, and enter your same database configuration again: 
 ```
 MYSQL_VERSION=5.7
 MYSQL_DATABASE=your_database_name
@@ -57,26 +57,34 @@ MYSQL_ROOT_PASSWORD=root
 MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
 ```
 
-Afther that, Docker containers are ready to run. Make sure you are in laradock/ directory and that Docker is running on your machine:
+>Note: I'm using MySQL version 5.7. because the newest version is not yet properly configured with Docker and I got some errors with that latest version.
+
+Now, Docker containers are ready to run. Make sure you are in laradock/ directory and that Docker is running on your machine:
 ```
 docker-compose up -d mysql apache2 rabbitmq phpmyadmin
 ```
-After everything is pulled, you can check if it is installed properly and ready to go, with the command below. Everyhting should have the `state` of `up`. 
+When everything is pulled and installed, you can check if containers are running properly, with the given command below. Everyhting should have the `state` of `up`. 
 ```
 docker-compose ps
 ```
+
+NAPOMENA: Staviti sliku ove komande iznad
 
 After that, we navigate to working directory of docker image, which is workspace:
 ```
 docker-compose exec workspace bash
 ```
-> Note: If you for some reason get an "*php_network_getaddresses: getaddrinfo failed*" error, just rebuild mysql container with following command: *docker-compose build --no-cache mysql*"
+> Note: If you for some reason get an "*php_network_getaddresses: getaddrinfo failed*" error, just rebuild mysql container with following command: *docker-compose build --no-cache mysql* and do the *docker-compose up* command again
 
-If everything is set-up correctly, we can now migrate the tables, which will create *account* entity in given database, with two properties, **balance** and **updatedAt**. Initial **balance** is set at **0** and initial **updatedAt** is set at **NULL** by default. Now you have everything set, and you can proceed to Services documentation, which will contain all necessary information about purposes, set-up and running.
+If everything is set-up correctly, we can now migrate the tables, which will create *account* entity in given the database in the *.env* file, with two properties, **balance** and **updatedAt**. Initial **balance** is set at **0** and initial **updatedAt** is set at **NULL** by default. Now you have everything set, and you can proceed to Services documentation, which will contain all necessary information about purposes, set-up and running.
 
 
 ## Service A
-Service A is the first part of this project. This service is used to generate message for the Service B. Continue documentation here......
+Service A is the first part of this project. This service is used to generate message for the Service B. For this Service, I used a single **POST** API route, which is used to generate a message, containing money data, to Service B, using [RabbitMQ](https://www.rabbitmq.com/) message broker. As noted eariler, I used Postman to send this request. Create new **POST** request and enter following route and parameters:
+
+![Publisher POST Request](https://imgur.com/a/DC5UgI6) 
+
+After you hit send, message will be sent to message broker, and HTTP payload of sent data will we displayed below.
 
 ## Laravel Sponsors
 
