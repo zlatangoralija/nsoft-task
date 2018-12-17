@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 Route::post('/send-message', 'ServiceAController@index');
 
 //Route that saves broker message to database
-Route::post('/receive-message', 'ServiceBController@store');
+Route::post('/account/update', 'ServiceBController@store');
 
-//Route for exposing current balance and the time that was last updated
-Route::get('/receive-message/balance', 'ServiceBController@show');
+//Route for exposing current balance and the time it was last updated
+Route::get('/account/balance', 'ServiceBController@show');

@@ -9,7 +9,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 class ServiceAController extends Controller
 {
     public function index(Request $request){
-        //Returning status 200 and sending message if amount is in range
+        //HTTP API Logic
         if( (-100000000  <= $request->amount )  &&  ($request->amount <= 100000000 )){
             //Sending message to RabbitMQ
             $amount = $request->amount;
@@ -21,7 +21,7 @@ class ServiceAController extends Controller
                 'currency' => $currency,
             ]);
 
-            //Sending broker message
+            //MESSAGING API Logic
             $host = 'wolverine-01.rmq.cloudamqp.com';
             $port = 5672;
             $user = 'kvbtxwwf';
