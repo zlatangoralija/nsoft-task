@@ -121,5 +121,5 @@ API consumer route is another *POST* API route, that leads to Service B controll
 <p align="center"><img src="https://i.imgur.com/FdOCg3S.png"></p>
 
 The last part of this project is a single HTTP API route that shows current account balance and the time it was last updated. Create a new GET request in Postman, like in example:
-<p align="center"><img src="https://i.imgur.com/undefined.png"></p>
+<p align="center"><img src="https://i.imgur.com/sMXZWI3.png"></p>
 
