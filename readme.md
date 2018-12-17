@@ -11,6 +11,8 @@ Welcome. This is my solution for the given task. The project was developed using
 4. [HTTP API](#http-api)
 5. [Messaging API](#messaging-api)
 6. [Service B](#service-b)
+7. [Unit tests](#unit-tests)
+8. [Author](#author)
   
 <a name="instalation"></a>
 ## Instalation
@@ -123,6 +125,7 @@ API consumer route is another *POST* API route, that leads to Service B controll
 The last part of this project is a single HTTP API route that shows current account balance and the time it was last updated. Create a new GET request in Postman, like in example:
 <p align="center"><img src="https://i.imgur.com/sMXZWI3.png"></p>
 
+<a name="unit-tests"></a>
 ## Unit test
 Since this whole project is basically run through *API routes*, I created two types of *Unit tests*. The test were created using *PHPUnit* unit testing framework. To run the tests, type in following command:
 ```
@@ -131,5 +134,7 @@ Since this whole project is basically run through *API routes*, I created two ty
 >Note: Make sure you're still using *Workspace* image
 
 The test should return status `OK`, which means everything is working properly and messages are being sent, saved to database and the account balance is shown.
+
+<a name="author"></a>
 ## Author
 * Zlatan Goralija
